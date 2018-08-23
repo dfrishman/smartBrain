@@ -22,14 +22,12 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors())
+// db.select('*').from('users')
+//     .then(response=> {
+//       return response[0]}
+//       )
 
-
-app.get('/', (req, res)=>{
-	res.send(db.select('*').from('users')
-		.then(response=> {
-			return response[0]}
-			));
-})
+app.get('/', (req, res)=>{res.send("it is working fool!")})
 app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
 //dependency injection
